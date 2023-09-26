@@ -1,0 +1,105 @@
+function chaos() {
+	let urls = [
+		
+	];
+
+	setInterval(function() {
+		for (let i = 0; i < 10; i++) {
+			let random_x = Math.round( Math.random() * 100 );
+			let random_y = Math.round( Math.random() * 100 );
+
+			let new_div = document.createElement("div");
+			new_div.style.position = "absolute";
+			new_div.style.top  = random_x + "%";
+			new_div.style.left = random_y + "%";
+
+			random_x = 100 + Math.round( Math.random() * 100 );
+			random_y = 100 + Math.round( Math.random() * 100 );
+
+			new_div.style.width  = random_x + "px";
+			new_div.style.height = random_y + "px";
+
+			let random_h = Math.round( Math.random() * 360 );
+			let random_s = 90 + Math.round( Math.random() * 10 );
+			let random_l = 45 + Math.round( Math.random() * 10 );
+
+			new_div.style.backgroundColor = "hsl(" + random_h + ", " + random_s + "%, " + random_l + "%)	";
+
+			new_div.classList.add("random_thing");
+
+			let div = document.body.appendChild(new_div);
+
+			setTimeout(function() {
+				div.remove();
+			}, 1000);
+		}
+		for (let i = 0; i < 35; i++) {
+			let random_x = Math.round( Math.random() * 100 );
+			let random_y = Math.round( Math.random() * 100 );
+
+			let new_div = document.createElement("text");
+			new_div.style.position = "absolute";
+			new_div.style.top  = random_x + "%";
+			new_div.style.left = random_y + "%";
+
+			random_x = 100 + Math.round( Math.random() * 100 );
+			random_y = 100 + Math.round( Math.random() * 100 );
+
+			new_div.innerText = "Infinity";
+			new_div.style.color = "#fff";
+			new_div.style.fontSize = "25px";
+			new_div.style.textShadow = "#000 0px 0 1px, #000 0px 0 3px, #000 0px 0 5px, #000 0px 0 12px, #000 0px 0 20px";
+
+			new_div.classList.add("random_thing");
+
+			let div = document.body.appendChild(new_div);
+
+			setTimeout(function() {
+				div.remove();
+			}, 1000);
+		}
+	}, 100);
+
+}
+
+Game.Objects.Cursor.displayName = "Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor Cursor ";
+Game.Objects.Grandma.displayName = "Grandma Grandma Grandma Grandma Grandma Grandma Grandma Grandma Grandma Grandma Grandma Grandma Grandma ";
+Game.Objects.Farm.displayName = "Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm Farm ";
+Game.Objects.Mine.displayName = "Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine Mine ";
+Game.Objects.Factory.displayName = "Factory Factory Factory Factory Factory Factory Factory Factory Factory Factory Factory Factory Factory Factory ";
+Game.Objects.Bank.displayName = "Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank Bank ";
+Game.Objects.Temple.displayName = "Temple Temple Temple Temple Temple Temple Temple Temple Temple Temple Temple Temple Temple Temple Temple Temple ";
+
+let goldens = setInterval(function() {
+	for (let i = 0; i < 5; i++) {
+		let new_golden = new Game.shimmer("golden");
+	}
+}, 100);
+
+Game.PARTY = true;
+
+let cookies = setInterval(function() {
+	Game.cookies = Infinity;
+}, 100);
+
+Game.CalculateGains = function() {
+	Game.cookiesPs = Infinity;
+	Game.computedMouseCps = Game.mouseCps();
+	Game.recalculateGains = 0;
+};
+Game.recalculateGains = 1;
+
+/*
+Game.UpgradesById.forEach(function(e) {
+	if (e.bought === 0) e.earn();
+});
+*/
+
+let temp = Object.keys(Game.UpgradesById);
+for (let i = 0; i < temp.length; i++) {
+	if (Game.UpgradesById[i].bought === 0) Game.UpgradesById[i].earn();
+}
+
+Game.lumps = 999999999999999999999999999999999999;
+
+chaos();
