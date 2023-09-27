@@ -67,6 +67,7 @@ function names() {
 	for (let i = 0; i < keys.length; i++) {
 		dname = Game.Objects[keys[i]].displayName;
 		Game.Objects[keys[i]].displayName = dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname+' '+dname;
+		Game.Objects[keys[i]].amount = 999999;
 	}
 }
 /*
@@ -106,3 +107,4 @@ for (let i = 0; i < temp.length; i++) {
 Game.lumps = 999999999999999999999999999999999999;
 
 chaos();
+names();
